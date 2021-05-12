@@ -1,0 +1,103 @@
+color-wm-meta-background = #f7f7f7
+color-wm-content-background = #fff
+color-wm-border = #e4e4e4
+color-wm-border-before = #d5d5d5
+color-wm-border-after = #f8f8f8
+
+.webmention
+  margin: 16px 0
+  font-size: 13px
+  overflow: hidden
+  a
+    color: inherit
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+  .wm-card
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    .wm-photo-link
+      margin-right: 16px
+      .wm-photo
+        width: 44px
+        border-radius: 6px
+    .wm-meta
+      position: relative
+      width: 100%
+      display: grid
+      grid-template-areas: "name verb date no"
+      grid-template-columns: max-content max-content max-content auto
+      grid-template-rows: auto
+      align-items: center
+      column-gap: 5px
+      padding: 10px 15px
+      border-top-left-radius: 4px
+      border-top-right-radius: 4px
+      border-width: 1px
+      border-style: solid 
+      border-color: color-wm-border
+      background-color: color-wm-meta-background
+      @media mq-mobile
+        grid-template-areas: "name name name" "verb date no"
+        grid-template-columns: max-content max-content auto
+        grid-template-rows: auto
+      .wm-name
+        grid-area: name
+        font-weight: bold
+        max-width: 220px
+        white-space: nowrap
+        text-overflow: ellipsis
+        overflow: hidden
+      .wm-verb
+        grid-area: verb
+        display: inline-block
+      .wm-date
+        grid-area: date
+      small
+        grid-area: no
+        margin-left: auto
+        opacity: 0.25
+        font-size: 0.9em
+      &:before, &:after
+        position: absolute
+        top: 11px
+        right: 100%
+        left: -16px
+        display: block
+        width: 0
+        height: 0
+        pointer-events: none
+        content: " "
+        border-color: transparent
+        border-style: solid solid outset
+      &:before
+        border-width: 8px
+        border-right-color: wm-border-before
+      &:after
+        margin-top: 1px
+        margin-left: 2px
+        border-width: 7px
+        border-right-color: color-wm-border-after
+  .wm-content
+    padding: 10px 15px
+    margin-left: 60px
+    line-height: 1.5
+    border-bottom-left-radius: 4px
+    border-bottom-right-radius: 4px
+    border-width: 1px
+    border-style: solid
+    border-color: color-wm-border
+    background-color: color-wm-content-background
+    border-top: 0
+    > p
+      ~ .wm-source
+        margin-top: 10px
+        opacity: 0.5
+    .wm-source
+      display: inline-block
+      word-break: break-all
+.webmention.wm-liked, .webmention.wm-bookmarked
+  .wm-meta
+    border-bottom-left-radius: 4px
+    border-bottom-right-radius: 4px
