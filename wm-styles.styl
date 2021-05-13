@@ -6,6 +6,8 @@ color-wm-border-after = #f8f8f8
 color-wm-button-background = #ddd
 color-wm-button = #222
 
+mq-mobile = "screen and (max-width: 479px)"
+
 .webmentions-placeholder
   .wm-placeholder
     opacity: 0.75
@@ -118,6 +120,9 @@ color-wm-button = #222
   grid-template: "label source submit"
   grid-template-columns: max-content auto max-content
   grid-template-rows: auto
+  @media mq-mobile
+    grid-template: "label" "source" "submit"
+    grid-template-columns: 1fr
   input
     padding: 10px 15px
     border-radius: 2px
