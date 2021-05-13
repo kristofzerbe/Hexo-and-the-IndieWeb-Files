@@ -1,3 +1,8 @@
+/**
+ * Method to retreive Webmentions from webmention.io and insert them into a article page
+ * see: https://kiko.io/categories/Tools/Hexo-and-the-IndieWeb-Receiving-Webmentions/
+ * @param {string} key - slug of the article 
+ */
 function insertWebmentions(key) {
   
   const dtf = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit' });
@@ -40,7 +45,7 @@ function insertWebmentions(key) {
    * Process Webmentions
    */
   function process() {
-    const placeholder = document.getElementById("webmentions-placeholder");
+    const placeholder = document.querySelector(".webmentions-placeholder");
     
     if (webmentions.children.length > 0) {
       placeholder.innerHTML = "";
